@@ -55,7 +55,7 @@ public class Pathfinding : MonoBehaviour
             justAte = false;
         } else
         {
-            cooldownRemaining -= cooldownRemaining;
+            cooldownRemaining -= Time.deltaTime;
         }
 
 
@@ -64,6 +64,7 @@ public class Pathfinding : MonoBehaviour
     public void SetEatCooldown()
     {
         cooldownRemaining = cooldown;
+        justAte = true;
     }
     void findTarget()
     {

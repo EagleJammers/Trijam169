@@ -19,10 +19,10 @@ public class Eating : MonoBehaviour
 	//How many new objects it should create 
 	public int split = 2; 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
-    }
+		this.transform.localScale = Vector3.one * scale;
+	}
 
     // Update is called once per frame
     void Update()
