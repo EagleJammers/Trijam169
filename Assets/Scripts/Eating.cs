@@ -12,22 +12,24 @@ public class Eating : MonoBehaviour
 	//Knockback 
 	public float knockback = 0;
 
+	private bool newborn = true;
 	public float scale = 0.2f;
+
 	//The new game object that it should create 
 	public GameObject newCell; 
 	
 	//How many new objects it should create 
 	public int split = 2; 
     // Start is called before the first frame update
-    void Awake()
-    {
-		this.transform.localScale = Vector3.one * scale;
-	}
 
     // Update is called once per frame
     void Update()
     {
-		if (scale < 1.0f)
+		if (newborn)
+        {
+			this.transform.localScale = Vector3.one * scale;
+			newborn = false;
+		} else if (scale < 1.0f)
 		{
 			scale += .001f;
 			this.transform.localScale = Vector3.one * scale;
@@ -36,7 +38,10 @@ public class Eating : MonoBehaviour
 
         
     }
-	
+	public void setScale()
+    {
+		scale = 0.2f;
+    }
 	//When the herbivore collides with something 
 	void OnCollisionStay2D(Collision2D c){
 		//When it collides with an object
@@ -44,8 +49,10 @@ public class Eating : MonoBehaviour
 			Destroy(c.gameObject);
 			Vector3 pos = this.transform.position; 
 
-			Instantiate(newCell, new Vector3(pos.x + .5f, pos.y + .5f, 0), this.transform.rotation);
-			Instantiate(newCell, new Vector3(pos.x + .5f, pos.y - .5f, 0), this.transform.rotation);
+			GameObject child1 = Instantiate(newCell, new Vector3(pos.x + .5f, pos.y + .5f, 0), this.transform.rotation);
+			child1.GetComponent<Eating>().setScale();
+			GameObject child2 = Instantiate(newCell, new Vector3(pos.x + .5f, pos.y - .5f, 0), this.transform.rotation);
+			child2.GetComponent<Eating>().setScale();
 
 			self.SetEatCooldown();
 			
