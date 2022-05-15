@@ -4,48 +4,43 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+	public Camera cam; 
+	
 	public GameObject plant; 
 	
 	public int timeInterval; 
 	
 	public int time; 
 	
-	private int minX; 
-	private int minY; 
+	private float left; 
+	private float right;  
 	
-	private int maxX; 
-	private int maxY; 
+	private float bottom; 
+	private float top; 
     // Start is called before the first frame update
     void Start()
     {
-       /* time = 0; 
-		maxX = ; 
-		maxY = ; 
+        time = timeInterval; 
+		left = cam.ViewportToWorldPoint(new Vector3(0f, 0f, 0f)).x; 
+		right =  cam.ViewportToWorldPoint(new Vector3(1.0f, 0f, 0f)).x;; 
 		
-		minX = ; 
-		minY = ; */
+		top = cam.ViewportToWorldPoint(new Vector3(0f, 1.0f, 0f)).y;; 
+		bottom = cam.ViewportToWorldPoint(new Vector3(0f, 0f, 0f)).y;; 
     }
 
     // Update is called once per frame
     void Update()
     {
 		time++; 
-		        //Every few seconds create a plant on screen 
+		//Every few seconds create a plant on screen 
 		if(time % timeInterval == 0){
 			//Spawn a plant in a random location on screen 
-			/*
-			float minX = ;
-			float maxX = ; 
 			
-			float minY = ; 
-			float maxY = Screen.height; ; 
+			float randX = Random.Range(left, right); 
+			float randY = Random.Range(top, bottom); 
 			
-			
-			float randX  = ; 
-			float randY =  ; 
-			*/
 			//Create teh object
-			Instantiate(plant, new Vector3(0, 0, 0), Quaternion.identity);
+			Instantiate(plant, new Vector3(randX, randY, 0), Quaternion.identity);
 			
 		}
 		
