@@ -27,7 +27,7 @@ public class Pathfinding : MonoBehaviour
     {
         if (justAte)
         {
-            Debug.Log("Digesting");
+            //Debug.Log("Digesting");
             Digest();
         }
         else
