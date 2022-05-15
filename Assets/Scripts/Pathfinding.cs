@@ -16,6 +16,7 @@ public class Pathfinding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		
         this.transform.Translate(Vector3.up * Time.deltaTime * speed);
         Vector3 targetPoint = target.transform.position - this.transform.position;
         float angle = Mathf.Atan2(targetPoint.y, targetPoint.x) * Mathf.Rad2Deg;
