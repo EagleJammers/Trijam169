@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1354256095
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3b6a19f27be38c94ea0f94915a9519c4, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -102,6 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCarnivore: 1
   speed: 1
+  justAte: 0
+  cooldown: 2.5
 --- !u!50 &4117925980616515811
 Rigidbody2D:
   serializedVersion: 4
@@ -151,7 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65994eb2924810249b46dc2789ad673b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  self: {fileID: 347101616420877234}
   goalTag: Herb
   knockback: 0
+  scale: 0.2
   newCell: {fileID: 2843453833335917145}
   split: 2

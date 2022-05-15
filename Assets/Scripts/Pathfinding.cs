@@ -26,16 +26,21 @@ public class Pathfinding : MonoBehaviour
     void Update()
     {
         if (justAte)
+        {
+            Debug.Log("Digesting");
             Digest();
+        }
         else
         {
 
             findTarget();
-
-            this.transform.Translate(Vector3.up * Time.deltaTime * speed);
-            Vector3 targetPoint = target.transform.position - this.transform.position;
-            float angle = Mathf.Atan2(targetPoint.y, targetPoint.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + offset));
+            if (target is not null)
+            {
+                this.transform.Translate(Vector3.up * Time.deltaTime * speed);
+                Vector3 targetPoint = target.transform.position - this.transform.position;
+                float angle = Mathf.Atan2(targetPoint.y, targetPoint.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + offset));
+            }
         }
         
         //this.transform.Translate(speed * Time.deltaTime * goal);
@@ -44,7 +49,21 @@ public class Pathfinding : MonoBehaviour
 
     public void Digest()
     {
+        if (cooldownRemaining <= 0)
+        {
+            cooldownRemaining = 0;
+            justAte = false;
+        } else
+        {
+            cooldownRemaining -= cooldownRemaining;
+        }
 
+
+    }
+
+    public void SetEatCooldown()
+    {
+        cooldownRemaining = cooldown;
     }
     void findTarget()
     {

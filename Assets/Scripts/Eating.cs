@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Eating : MonoBehaviour
 {
-	
+	[SerializeField]
+	private Pathfinding self;
 	//Goal Target
 	public string goalTag;
 	
@@ -45,8 +46,8 @@ public class Eating : MonoBehaviour
 
 			Instantiate(newCell, new Vector3(pos.x + .5f, pos.y + .5f, 0), this.transform.rotation);
 			Instantiate(newCell, new Vector3(pos.x + .5f, pos.y - .5f, 0), this.transform.rotation);
-				
-			
+
+			self.SetEatCooldown();
 			
 		}
 		
