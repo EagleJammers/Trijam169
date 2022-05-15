@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4117925980616515812}
   m_Layer: 6
   m_Name: CarnCell
-  m_TagString: Herb
+  m_TagString: Carn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54cbd2a160cad9b499b5974bfcd1e70a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isCarnivore: 0
+  isCarnivore: 1
   speed: 1
 --- !u!50 &4117925980616515811
 Rigidbody2D:
