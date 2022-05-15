@@ -191,17 +191,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 347101616420877234, guid: 24c2ca590e887e24996007bd2e672864, type: 3}
-      propertyPath: isCarnivore
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2843453833335917145, guid: 24c2ca590e887e24996007bd2e672864, type: 3}
       propertyPath: m_Name
       value: CarnCell
-      objectReference: {fileID: 0}
-    - target: {fileID: 2843453833335917145, guid: 24c2ca590e887e24996007bd2e672864, type: 3}
-      propertyPath: m_TagString
-      value: Carn
       objectReference: {fileID: 0}
     - target: {fileID: 2843453833335917147, guid: 24c2ca590e887e24996007bd2e672864, type: 3}
       propertyPath: m_RootOrder
