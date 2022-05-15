@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Plant
   - Herb
+  - Carn
   layers:
   - Default
   - TransparentFX
