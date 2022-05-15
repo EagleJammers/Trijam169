@@ -9,8 +9,9 @@ public class Eating : MonoBehaviour
 	public string goalTag;
 	
 	//Knockback 
-	public float knockback = 0; 
-	
+	public float knockback = 0;
+
+	public float scale = 0.2f;
 	//The new game object that it should create 
 	public GameObject newCell; 
 	
@@ -25,13 +26,20 @@ public class Eating : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if (scale < 1.0f)
+		{
+			scale += .001f;
+			this.transform.localScale = Vector3.one * scale;
+		}
+
+
         
     }
 	
 	//When the herbivore collides with something 
-	void OnCollisionEnter2D(Collision2D c){
+	void OnCollisionStay2D(Collision2D c){
 		//When it collides with an object
-		if(c.gameObject.CompareTag(goalTag)){
+		if(c.gameObject.CompareTag(goalTag) && scale > 0.8f){
 			Destroy(c.gameObject);
 			Vector3 pos = this.transform.position; 
 

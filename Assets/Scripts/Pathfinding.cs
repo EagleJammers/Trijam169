@@ -11,6 +11,10 @@ public class Pathfinding : MonoBehaviour
 
     public float speed;
     private float offset = -90;
+
+    public bool justAte = false;
+    public float cooldown;
+    private float cooldownRemaining;
     
     // Start is called before the first frame update
     void Start()
@@ -21,6 +25,10 @@ public class Pathfinding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (justAte)
+            Digest();
+        else
+        {
 
             findTarget();
 
@@ -28,12 +36,16 @@ public class Pathfinding : MonoBehaviour
             Vector3 targetPoint = target.transform.position - this.transform.position;
             float angle = Mathf.Atan2(targetPoint.y, targetPoint.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + offset));
-
+        }
         
         //this.transform.Translate(speed * Time.deltaTime * goal);
 
     }
 
+    public void Digest()
+    {
+
+    }
     void findTarget()
     {
         if (isCarnivore)
