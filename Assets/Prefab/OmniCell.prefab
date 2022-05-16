@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4665067868817241776}
   - component: {fileID: 4665067868817241779}
-  - component: {fileID: 7140874630113234777}
   - component: {fileID: 6840285502037990408}
   - component: {fileID: 6840285502037990414}
   - component: {fileID: 6840285502037990415}
+  - component: {fileID: 4312915245163867425}
   m_Layer: 6
   m_Name: OmniCell
   m_TagString: Herb
@@ -88,22 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7140874630113234777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4665067868817241778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54cbd2a160cad9b499b5974bfcd1e70a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isCarnivore: 0
-  speed: 1
-  justAte: 0
-  cooldown: 0
 --- !u!50 &6840285502037990408
 Rigidbody2D:
   serializedVersion: 4
@@ -138,9 +122,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.3}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.15
+  m_Radius: 0.4
 --- !u!114 &6840285502037990415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,8 +138,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   self: {fileID: 0}
-  goalTag: Plant
+  goalTag:
+  - Herb
+  - Plant
   knockback: 0
   scale: 0.2
   newCell: {fileID: 0}
   split: 2
+--- !u!114 &4312915245163867425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4665067868817241778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 080071d7f7b23234982ed47ad5fe62f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 1
+  moveSpeed: 0.02

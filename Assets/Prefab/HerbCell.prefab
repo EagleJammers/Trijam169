@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCarnivore: 0
-  speed: 1
+  speed: 1.5
   justAte: 0
   cooldown: 0
 --- !u!50 &1810577660
@@ -138,9 +138,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.3}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.15
+  m_Radius: 0.4
 --- !u!114 &1810577659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   self: {fileID: 0}
-  goalTag: Plant
+  goalTag:
+  - Plant
   knockback: 0
   scale: 0.2
   newCell: {fileID: 2184305118967566918}

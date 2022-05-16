@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Eating : MonoBehaviour
 {
 	[SerializeField]
 	private Pathfinding self;
 	//Goal Target
-	public string goalTag;
+	public string[] goalTag;
 	
 	//Knockback 
 	public float knockback = 0;
@@ -45,17 +46,29 @@ public class Eating : MonoBehaviour
 	//When the herbivore collides with something 
 	void OnCollisionStay2D(Collision2D c){
 		//When it collides with an object
-		if(c.gameObject.CompareTag(goalTag) && scale > 0.8f){
-			Destroy(c.gameObject);
-			Vector3 pos = this.transform.position; 
+		foreach (string tag in goalTag)
+		{
+			if (c.gameObject.CompareTag(tag) && scale > 0.8f)
+			{
 
-			GameObject child1 = Instantiate(newCell, new Vector3(pos.x + .5f, pos.y + .5f, 0), this.transform.rotation);
-			child1.GetComponent<Eating>().setScale();
-			GameObject child2 = Instantiate(newCell, new Vector3(pos.x + .5f, pos.y - .5f, 0), this.transform.rotation);
-			child2.GetComponent<Eating>().setScale();
+				if (c.gameObject.name == "OmniCell")
+				{
+					SceneManager.LoadScene("Die");
+				}
 
-			self.SetEatCooldown();
-			
+				Destroy(c.gameObject);
+				Vector3 pos = this.transform.position;
+
+				GameObject child1 = Instantiate(newCell, new Vector3(pos.x + .5f, pos.y + .5f, 0), this.transform.rotation);
+				child1.GetComponent<Eating>().setScale();
+				GameObject child2 = Instantiate(newCell, new Vector3(pos.x + .5f, pos.y - .5f, 0), this.transform.rotation);
+				child2.GetComponent<Eating>().setScale();
+
+				self.SetEatCooldown();
+
+
+
+			}
 		}
 		
 		
